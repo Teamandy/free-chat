@@ -6,7 +6,7 @@ const routes = require('./routes/api')
 const app = express();
 
 //connecting to the db
-mongoose.connect('mongodb://localhost/chats')
+mongoose.connect('mongodb://user1:user1@ds133961.mlab.com:33961/chats')
 mongoose.Promise = global.Promise
 
 app.set('view engine', 'ejs')

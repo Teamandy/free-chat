@@ -1,1 +1,1 @@
-React Chat
+React chat app

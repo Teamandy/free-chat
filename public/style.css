@@ -1,0 +1,127 @@
+body{
+    background-color: #eee;
+}
+.main__title{
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px 0;
+    color: #434343;
+    margin-bottom: 10px;
+}
+.page__title{
+    text-align: center;
+    text-transform: uppercase;
+    color: #434343;
+    padding: 10px 0;
+    margin: 0;
+}
+.main__page{
+    width: 800px;
+    margin: 0 auto;
+}
+.chat__friends{
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.friends__list{
+    margin: 0;
+    list-style-type: none;
+}
+.friends__list a{
+    text-decoration: none;
+}
+.friend__item{
+    padding: 5px 30px;
+    color: #434343;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+}
+.friend__item:hover{
+    background-color: #EAF8FF;
+}
+.chat__table{
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 20px 30px;
+    height: 250px;
+    overflow: auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.message{
+    position: relative;
+    margin-bottom: 20px;
+}
+.message img{
+    width: 50px;
+    height: 50px;
+}
+.who{
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    margin: 0;
+    margin-left: 20px;
+}
+.time{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #999999;
+}
+.chat__container{
+    display: flex;
+    justify-content: space-between;
+}
+.page__chat{
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+    width: 390px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.page__chat--start{
+    width: 100%;
+}
+.chat{
+    text-align: center;
+}
+#send-message{
+    text-align: center;
+}
+textarea{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    outline: none;
+}
+input[type='submit']{
+    padding: 10px 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #EAF8FF;
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+input[type='submit']:hover{
+    cursor: pointer;
+}

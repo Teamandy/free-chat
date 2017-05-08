@@ -1,1 +1,1 @@
-Simple chat using React
+React chat

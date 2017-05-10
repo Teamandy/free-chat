@@ -9,7 +9,7 @@ class Layout extends React.Component {
     constructor() {
         super()
         this.state = {
-            friends: ["Nick", "Caroline"]
+            friends: ['Nick', 'Caroline']
         }
     }
 
@@ -17,21 +17,25 @@ class Layout extends React.Component {
         return (
             <Router>
                 <div className='main__page'>
-
-                    <div className="chat__friends">
-                        <h2 className="page__title">All friends</h2>
-                        <FriendsList friends={this.state.friends} />
-                    </div>
-
-                    <Route exact path='/chat' component={Home} />
-                    <Route path='/chat/:name' render={
-                        ({ match }) => <PersonalChat payload={
-                            {
-                                name: match.params.name
-                            }
-                        } />
+                    <Route exact path='/chat' render={
+                        () =>
+                            <Home payload={
+                                {
+                                    friends: this.state.friends,
+                                    quantity: this.state.friends.length
+                                }
+                            } />
                     } />
-
+                    <Route path='/chat/:name' render={
+                        ({ match }) =>
+                            <PersonalChat payload={
+                                {
+                                    name: match.params.name,
+                                    friends: this.state.friends,
+                                    quantity: this.state.friends.length
+                                }
+                            } />
+                    } />
                 </div>
             </Router>
         )

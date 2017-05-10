@@ -4,7 +4,7 @@ import axios from 'axios'
 class OpponentsForm extends React.Component {
     messageHandler(e) {
         e.preventDefault()
-        const { name, refresh, typing } = this.props
+        const { name, refresh, typingAction } = this.props
         axios.post(`/api/post/${name}`, {
             text: this.text.value,
             image: `/${name}.jpg`,
@@ -16,26 +16,30 @@ class OpponentsForm extends React.Component {
             //clean up your textarea box
             this.text.value = ''
             //clean up your typing
-            typing('', '', false)
+            typingAction('', '', false)
         })
     }
     typingHandler() {
-        const { typing, name } = this.props
-        typing(name, this.text.value, true)
+        const { typingAction, name } = this.props
+        typingAction(name, this.text.value, true)
+    }
+    onBlurHandler() {
+        const { typingAction } = this.props
+        //clean up your typing from chatlist
+        typingAction('', '', false)
     }
     render() {
-        const { name } = this.props
+        const { name, typing } = this.props
         return (
-            <div className="page__chat">
-                <img src={`/${name}.jpg`} alt="yourface" />
-                <h2 className="page__title">{name}</h2>
+            <div className="chat__form chat__form--opponent">
+                <h2 className="page__title">Example of chatting back by your opponent</h2>
+                <div className="opponent__info">
+                    <img src={`/${name}.jpg`} alt={`${name}'s face`} />
+                    <h4>{name.charAt(0).toUpperCase() + name.substring(1, name.length)}</h4>
+                </div>
                 <form id='send-message' onSubmit={this.messageHandler.bind(this)}>
-                    <p>
-                        <textarea onChange={this.typingHandler.bind(this)} ref={(textarea) => { this.text = textarea }} name="text" id={`${name}`}></textarea>
-                    </p>
-                    <p>
-                        <input type="submit" value="Send" />
-                    </p>
+                    <textarea onBlur={this.onBlurHandler.bind(this)} onChange={this.typingHandler.bind(this)} ref={(textarea) => { this.text = textarea }} name="text" id={`${name}`}></textarea>
+                    <input className={typing.istyping === true && typing.whoIsTyping !== 'You' ? "active" : "inactive"} type="submit" value="Send" />
                 </form>
             </div>
         )

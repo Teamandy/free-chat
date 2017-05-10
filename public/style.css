@@ -7,16 +7,12 @@ body{
     text-align: center;
     text-transform: uppercase;
     background-color: #fff;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     padding: 10px 0;
     color: #434343;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .page__title{
-    text-align: center;
-    text-transform: uppercase;
+    border-bottom: 1px solid #ededed;
     color: #434343;
     padding: 10px 0;
     margin: 0;
@@ -25,39 +21,61 @@ body{
     width: 800px;
     margin: 0 auto;
 }
+.clearfix::after{
+    content:"";
+    display: table;
+    clear: both;
+}
 .chat__friends{
+    float: left;
+    box-sizing: border-box;
+    height: 450px;
+    width: 280px;
+    overflow: auto;
     background-color: #fff;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     margin-bottom: 10px;
+    margin-right: 20px;
+    padding: 0 20px;
+    box-shadow: 0px 3px 5px 0 rgba(174,174,174,0.5); 
 }
 .friends__list{
     margin: 0;
+    padding: 0;
     list-style-type: none;
 }
-.friends__list a{
-    text-decoration: none;
-}
 .friend__item{
-    padding: 5px 30px;
-    color: #434343;
-    text-transform: uppercase;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin: 10px 0;
     font-size: 16px;
     font-weight: bold;
+
 }
 .friend__item:hover{
-    background-color: #EAF8FF;
+    background-color: #F4F4F4;
+    cursor: pointer;
+}
+.friend__item.active{
+    background-color: #5677FC;
+}
+.friend__item span{
+    color: #434343;
+}
+.friend__item img{
+    width: 50px;
+    height: 50px;
+}
+.friend__name{
+    position: absolute;
+    top: 16px;
+    padding: 0 0 0 10px;
 }
 .chat__table{
     background-color: #fff;
-    margin-bottom: 10px;
-    padding: 20px 30px;
+    padding: 20px 0;
     height: 250px;
     overflow: auto;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
 }
 .message{
     position: relative;
@@ -80,48 +98,77 @@ body{
     right: 0;
     color: #999999;
 }
-.chat__container{
-    display: flex;
-    justify-content: space-between;
+.text{
+    overflow: hidden;
+    word-wrap: break-word;
 }
 .page__chat{
-    padding: 10px;
+    float: right;
     box-sizing: border-box;
-    text-align: center;
+    padding: 0 20px 20px 20px;
     background-color: #fff;
-    width: 390px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    width: 500px;
+    height: 450px;
+    box-shadow: 0px 3px 5px 0 rgba(174,174,174,0.5);
 }
-.page__chat--start{
-    width: 100%;
+.chat__form{
+    padding: 20px 0;
 }
-.chat{
-    text-align: center;
+.chat__form--opponent {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 3px 5px 0 rgba(174,174,174,0.5);
+}
+.opponent__info{
+    margin: 20px 0;
+    position: relative;
+}
+.opponent__info h4{
+    display: inline-block;
+    position: absolute;
+    top: -9px;
+    padding-left: 10px;
+}
+.opponent__info img{
+    width: 50px;
+    height: 50px;
 }
 #send-message{
-    text-align: center;
+    position: relative;
 }
 textarea{
     box-sizing: border-box;
     padding: 10px;
-    width: 100%;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    width: 340px;
+    margin-right: 20px;
     outline: none;
+    overflow: hidden;
+    word-wrap: break-word;
+    resize: none;
+    height: 38px;
 }
 input[type='submit']{
-    padding: 10px 20px;
+    position: absolute;
+    top: 0;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background-color: #EAF8FF;
+    background-color: #A0B0F3;
     outline: none;
-    border: none;
-    font-size: 18px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    height: 36px;
+    width: 95px;
+    line-height: 36px;
+    padding: 0 13px;
+    border: 0;
+    box-sizing: border-box;
 }
 input[type='submit']:hover{
     cursor: pointer;
+}
+input[type='submit'].active{
+    background-color: #5677FC;
 }

@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 
 class Friend extends React.Component {
     render() {
-        const { name } = this.props
+        const { name, activeName } = this.props
         return (
             <Link to={`/chat/${name.toLowerCase()}`}>
-                <li className="friend__item">
-                    {name}
+                <li ref={(li)=>{this.li = li}} className={activeName===true ? "friend__item active" : "friend__item"}>
+                    <img src={`/${name}.png`} alt="icon" />
+                    <span className="friend__name">{name}</span>
                 </li>
             </Link>
         )

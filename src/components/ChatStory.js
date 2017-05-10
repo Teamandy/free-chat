@@ -12,7 +12,7 @@ class ChatStory extends React.Component {
                 {typing.istyping === true ?
                     <div className="message">
                         <h4>
-                            {typing.whoIsTyping}
+                            {typing.whoIsTyping==='You' ? `${typing.whoIsTyping} are typing...` : `${typing.whoIsTyping} is typing...`}
                         </h4>
                         <p className='text'>
                             {typing.text}

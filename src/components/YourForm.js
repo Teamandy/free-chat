@@ -2,9 +2,9 @@ import React from 'react'
 import axios from 'axios'
 
 class YourForm extends React.Component {
-    messageHandler(e){
+    messageHandler(e) {
         e.preventDefault()
-        const {name, refresh, typing} = this.props
+        const { name, refresh, typingAction } = this.props
         axios.post(`/api/post/${name}`, {
             text: this.text.value,
             image: `/you.jpg`,
@@ -15,27 +15,26 @@ class YourForm extends React.Component {
             refresh(name)
             //clean up your textarea box
             this.text.value = ''
-            //clean up your typing
-            typing('', '', false)
+            //clean up your typing from chatlist
+            typingAction('', '', false)
         })
     }
-    typingHandler(){
-        const {typing} = this.props
-        typing('You', this.text.value, true)
+    typingHandler() {
+        const { typingAction } = this.props
+        typingAction('You', this.text.value, true)
+    }
+    onBlurHandler() {
+        const { typingAction } = this.props
+        //clean up your typing from chatlist
+        typingAction('', '', false)
     }
     render() {
-        const { name } = this.props
+        const { name, typing } = this.props
         return (
-            <div className="page__chat">
-                <img src="/you.jpg" alt="yourface"/>
-                <h2 className="page__title">YOU</h2>
+            <div className="chat__form">
                 <form id='send-message' onSubmit={this.messageHandler.bind(this)}>
-                    <p>
-                        <textarea onChange={this.typingHandler.bind(this)} ref={(textarea)=>{this.text = textarea}} name="text" id="you"></textarea>
-                    </p>
-                    <p>
-                        <input type="submit" value="Send" />
-                    </p>
+                    <textarea onBlur={this.onBlurHandler.bind(this)} onChange={this.typingHandler.bind(this)} ref={(textarea) => { this.text = textarea }} name="text" id="you"></textarea>
+                    <input className={typing.istyping === true && typing.whoIsTyping === 'You' ? "active" : "inactive"} type="submit" value="Send" />
                 </form>
             </div>
         )

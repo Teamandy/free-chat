@@ -3,11 +3,13 @@ import Friend from './Friend'
 
 class FriendsList extends React.Component {
     render() {
-        const { friends } = this.props
+        const { friends, activeName } = this.props
         return (
             <ul className="friends__list">
                 {friends.map((friend, index) => {
-                    return <Friend name={friend} key={index}/>
+                    return activeName == friend ?
+                    <Friend name={friend} activeName={true} key={index}/> : 
+                    <Friend name={friend} activeName={false} key={index}/>
                 })}
             </ul>
         )
